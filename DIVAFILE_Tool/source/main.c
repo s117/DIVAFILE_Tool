@@ -4,17 +4,17 @@
 #include <string.h>
 
 #include "utils.h"
-#include "divafile_decryptor.h"
+#include "divafile_tool.h"
 
 int main(int argc, char* argv[]) {
 	struct data_descriptor input;
 	struct data_descriptor output;
 	if ((argc == 2) && ((strcmp(argv[1], "-v") == 0) || (strcmp(argv[1], "--version") == 0))) {
-		fprintf_s(stdout, "DIVAFILE tool 0.1 -- S117<admin@0x10c.pw>, Bitman Lab.\n");
+		fprintf_s(stdout, "DIVAFILE tool 0.2 -- S117<admin@0x10c.pw>, Bitman Lab.\n");
 		exit(0);
 	}
 	if (argc != 4) {
-		fprintf_s(stderr, "useage: %s [e/c] src dst\n", argv[0]);
+		fprintf_s(stderr, "useage: %s [e/c] [src] [dst]\n", argv[0]);
 		fprintf_s(stderr, "\te - extract DIVAFILE\n");
 		fprintf_s(stderr, "\tc - create DIVAFILE\n");
 		exit(1);
@@ -54,7 +54,7 @@ int main(int argc, char* argv[]) {
 		free(output.data);
 		fprintf_s(stdout, "create complete, %s -> %s", argv[2], argv[3]);
 	} else {
-		fprintf_s(stderr, "useage: %s [e/c] src dst\n", argv[0]);
+		fprintf_s(stderr, "useage: %s [e/c] [src] [dst]\n", argv[0]);
 		fprintf_s(stderr, "\te - extract DIVAFILE\n");
 		fprintf_s(stderr, "\tc - create DIVAFILE\n");
 		exit(1);

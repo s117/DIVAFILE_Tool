@@ -119,13 +119,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\aes.h" />
-    <ClInclude Include="include\divafile_decryptor.h" />
+    <ClInclude Include="include\divafile_tool.h" />
     <ClInclude Include="include\endian_utils.h" />
     <ClInclude Include="include\utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\aes.c" />
-    <ClCompile Include="source\divafile_decryptor.c" />
+    <ClCompile Include="source\divafile_tool.c" />
     <ClCompile Include="source\main.c" />
     <ClCompile Include="source\utils.c" />
   </ItemGroup>

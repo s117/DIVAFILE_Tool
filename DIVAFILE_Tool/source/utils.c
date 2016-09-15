@@ -17,8 +17,8 @@ uint8_t* get_file_content(const char *path, size_t *len) {
 	fseek(fp, 0, SEEK_END);
 	file_len = ftell(fp);
 	rewind(fp);
-	// Some memory access violation bug still remain in dumped PPC ASM code. So currently bigger file buffer(x2) is allocated to temporary make tool work.
-	p_buffer = (uint8_t*)malloc(sizeof(uint8_t) * file_len * 2);
+
+	p_buffer = (uint8_t*)malloc(sizeof(uint8_t) * file_len);
 	if (p_buffer == NULL) {
 		fclose(fp);
 		fprintf_s(stderr, "fail to allocate memory.\n");
@@ -26,7 +26,6 @@ uint8_t* get_file_content(const char *path, size_t *len) {
 	}
 
 	file_len = fread(p_buffer, sizeof(uint8_t), file_len, fp);
-	//fread(p_buffer, sizeof(uint8_t), file_len, fp);
 	fclose(fp);
 
 	*len = file_len;
@@ -37,7 +36,10 @@ int write_to_file(const char* path, uint8_t* data, size_t len) {
 	FILE* fp = fopen(path, "wb");
 	if (fp == NULL)
 		return 0;
-	fwrite(data, 1, len, fp);
+	if (fwrite(data, 1, len, fp) != len) {
+		return 0;
+	}
+
 	fflush(fp);
 	fclose(fp);
 	return 1;

@@ -6,12 +6,10 @@
 //  Copyright  2016Äê s117. All rights reserved.
 //
 
-#ifndef EndianUtils_hpp
-#define EndianUtils_hpp
+#ifndef __H_ENDIAN_UTILS
+#define __H_ENDIAN_UTILS
 
-#include <stdio.h>
 #include <stdint.h>
-
 
 #define __UINT32_ADDR_DEREF(p, offset) (*(uint32_t*)(((uint8_t*)(p))+(offset)))
 
