@@ -14,4 +14,32 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\aes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\divafile_decryptor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\endian_utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\utils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\aes.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\divafile_decryptor.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\utils.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
