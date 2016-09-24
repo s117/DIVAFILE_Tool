@@ -1,3 +1,9 @@
+// Copyright (C) 2016 S117 <admin@0x10c.pw>
+// Bitman Lab.
+// Licensed under the terms of the GNU GPL, version 2
+// http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+
+
 #ifndef __H_DIVAFILE_TOOL
 #define __H_DIVAFILE_TOOL
 
