@@ -21,7 +21,7 @@ Each DIVAFILE has a 16 bytes file header, which structure is shown as following:
 
 First 8 bytes `'DIVAFILE'` can be considered as file magic. Following `LEN_PAYLOAD` (4 bytes) and `LEN_PLAINTEXT` (4 bytes) are 32-bit unsigned integer stored in little-endian. They separately record the size of encrypted data block and the size of original file.
 
-The data beginning at offset 0x10 (following the header) is the encrypted data which length is `LEN_PAYLOAD`. By reversing the executable binary of NPJB00435 (Project DIVA F2 – Japan) on PlayStation 3, we can known in the current DIVAFILE, the AES-128-ECB-NullPadding is used as the encryption algorithm and the AES key is `66696c65206163636573732064656e79` ('file access deny', lol). `LEN_PAYLOAD - LEN_PLAINTEXT` equals the number of padding byte (0x0), and `LEN_PAYLOAD + 16` equals to the size of that certain DIVAFILE. Following image shows the disassembly point of NPJB00435 where reveals the key. 
+The data beginning at offset 0x10 (following the header) is the encrypted data which length is `LEN_PAYLOAD`. By reversing the executable binary of NPJB00435 (Project DIVA F2 – Japan) on PlayStation 3, we can know in the current DIVAFILE, the AES-128-ECB-NullPadding is used as the encryption algorithm and the AES key is `66696c65206163636573732064656e79` ('file access deny', lol). `LEN_PAYLOAD - LEN_PLAINTEXT` equals the number of padding byte (0x0), and `LEN_PAYLOAD + 16` equals to the size of that certain DIVAFILE. Following image shows the disassembly point of NPJB00435 where reveals the key. 
 
 ![IDA](http://i.imgur.com/PLSwVAY.png)
 
