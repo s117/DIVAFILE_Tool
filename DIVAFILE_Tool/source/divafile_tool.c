@@ -13,7 +13,7 @@
 #include <string.h>
 #include <memory.h>
 #include <assert.h>
-#include <malloc.h>
+#include <stdlib.h>
 
 #define is_16_aligned(addr) (((addr + 0xf) & (~0xf)) == addr)
 #define BLOCK_SIZE						16
@@ -49,7 +49,7 @@ uint32_t decrypt_divafile(IN struct data_descriptor *input, OUT struct data_desc
 	uint8_t* p_divafile = input->data;
 
 	if (check_divafile(p_divafile, len_divafile) == 0) {
-		fprintf_s(stderr, "invalid divafile.\n");
+		fprintf(stderr, "invalid divafile.\n");
 		return 0;
 	}
 
@@ -87,7 +87,7 @@ uint32_t encrypt_divafile(IN struct data_descriptor *input, OUT struct data_desc
 	uint8_t* p_divafile_payload = p_divafile + DIVAFILE_HDR_SIZE;
 
 	if (p_divafile == NULL) {
-		fprintf_s(stderr, "fail to allocate memory.\n");
+		fprintf(stderr, "fail to allocate memory.\n");
 		return 0;
 	}
 

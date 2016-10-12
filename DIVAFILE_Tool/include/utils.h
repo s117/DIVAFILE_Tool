@@ -21,8 +21,8 @@
 #endif
 
 EXTERN int end_with(const char * str, const char * end);
-EXTERN uint8_t* get_file_content(const char *path, size_t *len);
-EXTERN int write_to_file(const char* path, uint8_t* data, size_t len);
+EXTERN uint8_t* get_file_content(const char *path, uint32_t *len);
+EXTERN int write_to_file(const char* path, uint8_t* data, uint32_t len);
 
 #undef EXTERN
 
