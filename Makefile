@@ -10,6 +10,7 @@ PROJECT_NAME=DIVAFILE_Tool
 
 SRC_DIR=$(PROJECT_DIR)/$(PROJECT_NAME)/source
 INCLUDE_DIR=$(PROJECT_DIR)/$(PROJECT_NAME)/include
+SCRIPT_DIR=$(PROJECT_DIR)/script
 LIB_DIR=
 
 BUILD_DIR=$(PROJECT_DIR)/build
@@ -30,12 +31,16 @@ INCLUDE=\
 CC=gcc
 CFLAGS=-Wall -W -g -O2
 LDFLAGS=
+GEN_BUILD_INFO=$(SCRIPT_DIR)/gen_build_info
 
 
 .PHONY: all clean rebuild
 
-all: directories $(OBJS) 
+all: generate_build_info directories $(OBJS) 
 	$(CC) -o $(PROGRAM) $(OBJS) $(LDFLAGS) 
+
+generate_build_info:
+	$(GEN_BUILD_INFO) $(INCLUDE_DIR)/build_info.h
 
 directories: $(OUT_DIR)
 

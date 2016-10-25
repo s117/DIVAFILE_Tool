@@ -1,0 +1,61 @@
+#!/bin/sh
+
+##########################################################
+## Build info header file automatic generating script   ##
+##                                                      ##
+## Copyright (C) 2016 S117 <admin@0x10c.pw>             ##
+## Bitman Lab.                                          ##
+## Licensed under the terms of the GNU GPL, version 2   ##
+## http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt ##
+##########################################################
+
+
+BUILD_PROJECT_PAGE="https://github.com/s117/DIVAFILE_Tool"
+
+BUILD_TIME=`date +%y%m%d%H%M%S`
+if [ $? != 0 ]; then  
+  echo "fail to invoke 'data', generate fail."
+  exit -1
+fi
+
+GIT_COMMIT_ID=`git rev-list HEAD -n 1 | cut -c 1-7`
+if [ $? != 0 ]; then  
+  echo "fail to invoke 'git', generate fail."
+  exit -1
+fi
+
+GIT_TAG_NAME=`git tag --points-at $GIT_COMMIT_ID`
+if [ $? != 0 ]; then  
+  echo "fail to invoke 'git', generate fail."
+  exit -1
+fi
+
+GIT_RELEASE_INFO="non-release version"
+
+
+if [ "$GIT_TAG_NAME" != "" ]; then
+  GIT_RELEASE_INFO="release $GIT_TAG_NAME"
+fi
+
+if [ ! $1 ]; then
+echo "error: you must specify the output file path to use this script."
+echo "Usage: $0 HEADER_FILE_PATH"
+exit -1
+else
+  if [ -f $1 ]; then
+    rm -f $1
+  fi
+  touch $1
+fi
+
+echo "/* This is a automatic generated file. DO NOT edit it directly. */" >> $1
+echo "" >> $1
+echo "#ifndef __AT_H_VERSION" >> $1
+echo "#define __AT_H_VERSION" >> $1
+echo "" >> $1
+echo "#define BUILD_TIME                  \"$BUILD_TIME\"" >> $1
+echo "#define BUILD_PROJ_PAGE             \"$BUILD_PROJECT_PAGE\"" >> $1
+echo "#define BUILD_GIT_COMMIT_ID         \"$GIT_COMMIT_ID\"" >> $1
+echo "#define BUILD_GIT_RELEASE_INFO      \"$GIT_RELEASE_INFO\"" >> $1
+echo "" >> $1
+echo "#endif" >> $1

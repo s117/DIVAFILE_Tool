@@ -11,9 +11,12 @@
 
 #include "utils.h"
 #include "divafile_tool.h"
+#include "build_info.h"
 
 void print_info(){
-	fprintf(stdout, "DIVAFILE tool 0.3 -- S117<admin@0x10c.pw>, Bitman Lab.\n");
+    fprintf(stdout, "DIVAFILE tool %s, %s-%s\n\n", BUILD_GIT_RELEASE_INFO, BUILD_TIME, BUILD_GIT_COMMIT_ID);
+    fprintf(stdout, "Source: %s\n\n", BUILD_PROJ_PAGE);
+    fprintf(stdout, "S117<admin@0x10c.pw>, Bitman Lab.\n\n");
 }
 
 void print_usage(char* binary_name){
