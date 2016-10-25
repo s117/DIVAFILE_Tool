@@ -12,17 +12,25 @@
 #include "utils.h"
 #include "divafile_tool.h"
 
+void print_info(){
+	fprintf(stdout, "DIVAFILE tool 0.3 -- S117<admin@0x10c.pw>, Bitman Lab.\n");
+}
+
+void print_usage(char* binary_name){
+	fprintf(stderr, "Usage: %s [e/c] [src] [dst]\n", binary_name);
+	fprintf(stderr, "\te - extract DIVAFILE\n");
+	fprintf(stderr, "\tc - create DIVAFILE\n");
+}
+
 int main(int argc, char* argv[]) {
 	struct data_descriptor input;
 	struct data_descriptor output;
 	if ((argc == 2) && ((strcmp(argv[1], "-v") == 0) || (strcmp(argv[1], "--version") == 0))) {
-		fprintf(stdout, "DIVAFILE tool 0.2 -- S117<admin@0x10c.pw>, Bitman Lab.\n");
+		print_info();
 		exit(0);
 	}
 	if (argc != 4) {
-		fprintf(stderr, "useage: %s [e/c] [src] [dst]\n", argv[0]);
-		fprintf(stderr, "\te - extract DIVAFILE\n");
-		fprintf(stderr, "\tc - create DIVAFILE\n");
+		print_usage(argv[0]);
 		exit(1);
 	}
 	if (strcmp(argv[1], "e") == 0 || strcmp(argv[1], "E") == 0) { // extract
@@ -60,9 +68,7 @@ int main(int argc, char* argv[]) {
 		free(output.data);
 		fprintf(stdout, "create complete, %s -> %s", argv[2], argv[3]);
 	} else {
-		fprintf(stderr, "useage: %s [e/c] [src] [dst]\n", argv[0]);
-		fprintf(stderr, "\te - extract DIVAFILE\n");
-		fprintf(stderr, "\tc - create DIVAFILE\n");
+		print_usage(argv[0]);
 		exit(1);
 	}
 }

@@ -33,7 +33,7 @@ uint32_t check_divafile(uint8_t* p_file, uint32_t size) { //sub_560738
 	uint32_t len_file_payload = LE32((uint32_t*)(p_file + DIVAFILE_OFFSET_LEN_PAYLOAD));		// offset 0x8, file_size_1, store in little-endian
 	uint32_t len_file_plaintext = LE32((uint32_t*)(p_file + DIVAFILE_OFFSET_LEN_PLAINTEXT));	// offset 0xc, file_size_2, store in little-endian
 
-	if (*((int64_t*)p_file) != *(pmagic_num))	// compare 'DIVAFILE'
+	if (*((uint64_t*)p_file) != *(pmagic_num))	// compare 'DIVAFILE'
 		return 0;
 	if (!is_16_aligned(len_file_payload))
 		return 0;
