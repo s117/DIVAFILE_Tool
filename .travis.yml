@@ -1,2 +1,15 @@
-language: csharp
-solution: DIVAFILE_Tool.sln
+language: c
+
+os:
+  - linux
+  - osx
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - make all
+
+after_script:
+  - ./build/bin/DIVAFILE_Tool --version
