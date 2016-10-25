@@ -23,6 +23,8 @@ void print_usage(char* binary_name){
 	fprintf(stderr, "Usage: %s [e/c] [src] [dst]\n", binary_name);
 	fprintf(stderr, "\te - extract DIVAFILE\n");
 	fprintf(stderr, "\tc - create DIVAFILE\n");
+	fprintf(stderr, "\n");
+	fprintf(stderr, "execute DIVAFILE_Tool -v or --version to check the version\n");
 }
 
 int main(int argc, char* argv[]) {
