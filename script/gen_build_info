@@ -14,7 +14,7 @@ BUILD_PROJECT_PAGE="https://github.com/s117/DIVAFILE_Tool"
 
 BUILD_TIME=`date +%y%m%d%H%M%S`
 if [ $? != 0 ]; then  
-  echo "fail to invoke 'data', generate fail."
+  echo "fail to invoke 'date', generate fail."
   exit -1
 fi
 
@@ -24,7 +24,7 @@ if [ $? != 0 ]; then
   exit -1
 fi
 
-GIT_TAG_NAME=`git tag --points-at $GIT_COMMIT_ID`
+GIT_TAG_NAME=`git tag --contains $GIT_COMMIT_ID`
 if [ $? != 0 ]; then  
   echo "fail to invoke 'git', generate fail."
   exit -1
