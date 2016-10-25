@@ -10,6 +10,3 @@ compiler:
 
 script:
   - make all
-
-after_script:
-  - ./build/bin/DIVAFILE_Tool --version
