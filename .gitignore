@@ -245,4 +245,9 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
+# OSX finder's folder database
 .DS_Store
+
+# automatic generated build information file
+DIVAFILE_Tool/include/build_info.h
+
