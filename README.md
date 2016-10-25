@@ -1,16 +1,53 @@
-# DIVAFILE Tool
+# DIVAFILE Tool #
 [![Build Status](https://api.travis-ci.org/s117/DIVAFILE_Tool.svg?branch=master)](https://travis-ci.org/s117/DIVAFILE_Tool)
 
-This tool is made for creating and extracting the DIVAFILE designed by SEGA which is used in Project DIVA F2 and Project DIVA X. This tool is made for windows and the project is created by Visual Studio 2015, but port it to other platform shouldn't be very diffucult. 
+This tool is made for creating and extracting the DIVAFILE designed by SEGA which is used in Project DIVA F2 and Project DIVA X.
 
-## Usage
-`DIVAFILE_Tool [e/c] [src] [dst]`
+## Usage ##
+```
+DIVAFILE_Tool [e/c] [src] [dst]
+    e - extract DIVAFILE
+    c - create DIVAFILE
 
- `e - extract DIVAFILE`
+execute DIVAFILE_Tool -v or --version to check the version
+```
 
- `c - create DIVAFILE`
+## Build ##
+### Windows ###
+To build on Windows with MSBuild, open the "Developer Command Prompt" of Visual Studio, go to the root directory of the project, and then:
+ - Build:
+```
+> MSBuild DIVAFILE_Tool.sln /t:Build /p:Configuration=Release /p:Platform=x86
+```
+ - Clean:
+```
+> MSBuild DIVAFILE_Tool.sln /t:Clean /p:Configuration=Release /p:Platform=x86
+```
+ - Rebuild:
+```
+> MSBuild DIVAFILE_Tool.sln /t:Rebuild /p:Configuration=Release /p:Platform=x86
+```
+after build, you can find the binary at "Release/DIVAFILE_Tool.exe".
 
-## About DIVAFILE
+### Linux and OSX ###
+To build on Linux or OSX with GCC or Clang, open terminal, go to the root directory of the project, and then:
+ - Build:
+```
+$ make all
+```
+ - Clean:
+```
+$ make clean
+```
+ - Rebuild:
+```
+$ make rebuild
+```
+
+after build, you can find the binary at "build/bin/DIVAFILE_Tool".
+
+
+## About DIVAFILE ##
 **All the information about the DIVAFILE here are from the game reversing works I have done, so it might not absolutely correct. However, if you find anything wrong, hope you could [tell](mailto:admin@0x10c.pw) me.**
 
 DIVAFILE is a kind of file encryption encapsulation designed by SEGA. And currently one DIVAFILE could only hold one file since currently no structure that records the directory information has been observed in DIVAFILE, and in the game binary(NPJB00435) I haven't found any code that handle multiple file situation in the DIVAFILE decryption routine. The file structure and endianness of DIAVFILE on PS3 and PSV are identical.
