@@ -15,7 +15,7 @@ execute DIVAFILE_Tool -v or --version to check the version
 ## About DIVAFILE ##
 **All the information here about the DIVAFILE is from the game reversing work I have done. So it may not completely correct. If there exist any mistake, hope you could [tell](mailto:admin@0x10c.pw) me.**
 
-The DIVAFILE is a kind of file encryption encapsulation designed by SEGA. For the moment, I think one DIVAFILE could only hold one file since currently no structure that records the directory structure has been seen in DIVAFILE and no instructions that handle multiple file case has been found in the decrypting routine in NPJB00435 (Project DIVA F2 – Japan, PlayStation 3).
+The DIVAFILE is a kind of file encryption encapsulation designed by SEGA. For the moment, I think one DIVAFILE could only hold one file since currently no directory structure has been seen in DIVAFILE and no instructions that handle multiple file case has been found in the decrypting routine in NPJB00435 (Project DIVA F2 – Japan, PlayStation 3).
 
 The structure and endianness of the DIAVFILE on PS3 and PSV are identical. A DIVAFILE has a 16 bytes header, which structure is:
 
